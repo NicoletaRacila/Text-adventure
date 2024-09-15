@@ -12,6 +12,7 @@ Un text adventure game (sau joc de aventură text-based) este un tip de joc vide
 Functia fisierelor: Game.hpp, Room.hpp, Player.hpp si Main.hpp 
 
 Game.hpp
+
 Game: Este clasa principală care controlează tot jocul. Se ocupă de logica principală, cum ar fi afișarea camerelor și gestionarea opțiunilor pe care le poate lua jucătorul.
 
 std::vector<Room> rooms: Un vector care stochează toate camerele din joc. Fiecare cameră are o descriere și opțiuni pentru următoarele acțiuni.
