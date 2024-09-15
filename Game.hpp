@@ -8,15 +8,15 @@
 
 class Game {
 public:
-    Game();  // Constructorul care inițializează jocul
-    void start();  // Metoda care pornește jocul
+    Game();  
+    void start();  
     
 private:
-    std::vector<Room> rooms;  // Lista de camere din joc
-    Player player;  // Obiectul care reprezintă jucătorul
-    int currentRoom;  // Indexul camerei curente
-    void displayCurrentRoom();  // Afișează descrierea și opțiunile camerei curente
-    void chooseOption();  // Permite jucătorului să aleagă o opțiune din cameră
+    std::vector<Room> rooms;  
+    Player player; 
+    int currentRoom;  
+    void displayCurrentRoom();  
+    void chooseOption();  
 };
 
-#endif // GAME_HPP
+#endif
