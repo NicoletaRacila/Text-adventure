@@ -9,55 +9,29 @@ Un text adventure game (sau joc de aventură text-based) este un tip de joc vide
 și se centrează pe explorarea, rezolvarea de puzzle-uri și luarea de decizii care influențează progresul jocului
 
 
-Functia fisierelor: Game.hpp, Room.hpp, Player.hpp si Main.hpp 
+Functia fisierelor: Game.cpp, Room.cpp, Player.cpp, Main.cpp Makefile.cmd si .gitignore
 
-Game.hpp
+1. Fișierele .cpp
+main.cpp: Acesta este punctul de intrare al programului. Conține funcția main() care inițiază execuția aplicației.
 
-Game: Este clasa principală care controlează tot jocul. Se ocupă de logica principală, cum ar fi afișarea camerelor și gestionarea opțiunilor pe care le poate lua jucătorul.
+Player.cpp: Acest fișier ar conține implementarea clasei Player, inclusiv metodele pentru gestionarea inventarului și a numelui jucătorului.
 
-std::vector<Room> rooms: Un vector care stochează toate camerele din joc. Fiecare cameră are o descriere și opțiuni pentru următoarele acțiuni.
+Room.cpp: Aici se implementează clasa Room, care gestionează descrierea camerelor și opțiunile disponibile pentru jucător.
 
-Player player: Un obiect al clasei Player care reprezintă jucătorul. Acesta va conține numele și inventarul jucătorului.
-int currentRoom: Un index care indică camera în care se află jucătorul în momentul respectiv.
+Game.cpp: Acest fișier ar conține logica principală a jocului, inclusiv gestionarea stării jocului, a camerelor și a interacțiunilor jucătorului.
 
-Game(): Constructorul care inițializează camerele și jucătorul.
 
-void start(): Aceasta este metoda care începe jocul. Când este apelată, gestionează logica de bază, cum ar fi trecerea prin camere și efectuarea de acțiuni.
+3. Fișierul Makefile.cmd
 
-void displayCurrentRoom(): Afișează descrierea camerei curente și opțiunile disponibile pentru jucător.
+Makefile.cmd este un fișier de script folosit pentru a compila un proiect C++ pe Windows. Acesta conține o serie de comenzi care sunt executate pentru a construi proiectul. De obicei, include setările pentru compilator, fișierele sursă, și regulile de construcție. Iată câteva aspecte cheie:
 
-void chooseOption(): Permite jucătorului să aleagă o opțiune bazată pe ce poate face în camera curentă (ex. mutarea în altă cameră).
 
-Room.hpp
+3. Fișierul .gitignore
+   
+Fișierul .gitignore este folosit pentru a specifica fișierele și directoarele pe care Git ar trebui să le ignore. Acest lucru este util pentru a evita adăugarea fișierelor temporare, de configurare sau de compilare în sistemul de versionare. Iată ce ar trebui să conțină un fișier .gitignore pentru proiectul tău:
 
-Room: Reprezintă o cameră individuală din joc. Fiecare cameră are o descriere și o serie de opțiuni pe care jucătorul le poate alege (de exemplu, să meargă într-o altă cameră).
+Fișiere obiect: Ignoră toate fișierele cu extensia .o, care sunt generate în timpul compilării.
 
-std::string description: Reprezintă descrierea camerei (ce vede jucătorul când intră în cameră).
+Fișiere executabile: Ignoră fișierele executabile generate, cum ar fi game.exe (pe Windows) sau game (pe Linux/Mac).
 
-std::vector<std::pair<std::string, int>> options: Acesta este un vector de perechi care conține textul opțiunii și indexul camerei în care te duce acea opțiune. De exemplu, o opțiune ar putea fi „Mergeți spre nord”, iar nextRoom ar fi indexul camerei în care se ajunge.
-
-Room(const std::string& description): Constructor care inițializează descrierea camerei.
-
-void addOption(const std::string& optionText, int nextRoom): Metodă care adaugă o opțiune (text și camera următoare) în lista de opțiuni a camerei.
-
-std::string getDescription() const: Returnează descrierea camerei curente.
-
-std::vector<std::pair<std::string, int>> getOptions() const: Returnează opțiunile pe care le poate alege jucătorul.
-
-Player.hpp
-Player: Reprezintă jucătorul în joc. Jucătorul are un nume și poate deține obiecte în inventarul său.
-
-std::string name: Numele jucătorului, ales de utilizator la începutul jocului.
-
-std::vector<std::string> inventory: O listă cu obiectele pe care jucătorul le-a colectat în timpul jocului.
-
-Player(const std::string& name): Constructorul care setează numele jucătorului la începutul jocului.
-
-std::string getName() const: Returnează numele jucătorului.
-
-void addItem(const std::string& item): Adaugă un obiect în inventarul jucătorului.
-
-void showInventory() const: Afișează toate obiectele din inventar.
-
-Main.hpp
-main(): Este funcția principală din care pornește execuția programului. În hpp este doar declarată.
+Fișiere temporare: Poate include și alte fișiere temporare generate de editori sau medii de dezvoltare.
